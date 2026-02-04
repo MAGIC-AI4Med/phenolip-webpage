@@ -1,0 +1,569 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+
+	.disclaimerbox {
+		background-color: #eee;
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+
+	table.results {
+		border-collapse: collapse;
+		width: 100%;
+		margin: 20px 0;
+	}
+
+	table.results th {
+		background-color: #f2f2f2;
+		padding: 10px;
+		border: 1px solid #ddd;
+		font-weight: 600;
+		text-align: left;
+	}
+
+	table.results td {
+		padding: 8px;
+		border: 1px solid #ddd;
+	}
+
+	table.results tr:nth-child(even) {
+		background-color: #f9f9f9;
+	}
+
+	.best-result {
+		background-color: #d4edda !important;
+		font-weight: bold;
+	}
+
+	.highlight-box {
+		background-color: #fff3cd;
+		border-left: 4px solid #ffc107;
+		padding: 15px;
+		margin: 20px 0;
+	}
+</style>
+
+<html>
+<head>
+	<title>PhenoLIP: Phenotype Knowledge-Enhanced Vision-Language Pretraining</title>
+	<meta property="og:image" content="https://magic-ai4med.github.io/phenolip-project-page/resources/overview.png"/>
+	<meta property="og:title" content="PhenoLIP: Integrating Phenotype Ontology Knowledge into Medical Vision–Language Pretraining" />
+	<meta property="og:description" content="CVPR 2026 - A novel framework that incorporates structured phenotype knowledge into medical vision-language pretraining, achieving state-of-the-art performance on phenotype recognition tasks." />
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:38px; font-weight:400">PhenoLIP: Integrating Phenotype Ontology Knowledge<br>into Medical Vision–Language Pretraining</span>
+		<table align=center width=900px>
+			<tr>
+				<td align=center width=150px>
+					<center>
+						<span style="font-size:22px">Ziqing Fan<sup>1,2,*</sup></span>
+					</center>
+				</td>
+				<td align=center width=150px>
+					<center>
+						<span style="font-size:22px"><a href="https://github.com/LiangChengBupt">Cheng Liang<sup>1,2,*</sup></a></span>
+					</center>
+				</td>
+				<td align=center width=150px>
+					<center>
+						<span style="font-size:22px">Chaoyi Wu<sup>1,2</sup></span>
+					</center>
+				</td>
+			</tr>
+			<tr>
+				<td align=center width=150px>
+					<center>
+						<span style="font-size:22px">Ya Zhang<sup>1,2,†</sup></span>
+					</center>
+				</td>
+				<td align=center width=150px>
+					<center>
+						<span style="font-size:22px">Yanfeng Wang<sup>1,2,†</sup></span>
+					</center>
+				</td>
+				<td align=center width=150px>
+					<center>
+						<span style="font-size:22px">Weidi Xie<sup>1,2,†</sup></span>
+					</center>
+				</td>
+			</tr>
+		</table>
+
+		<table align=center width=700px>
+			<tr>
+				<td align=center width=350px>
+					<center>
+						<span style="font-size:20px"><sup>1</sup>Shanghai Jiao Tong University</span>
+					</center>
+				</td>
+				<td align=center width=350px>
+					<center>
+						<span style="font-size:20px"><sup>2</sup>Shanghai AI Laboratory</span>
+					</center>
+				</td>
+			</tr>
+		</table>
+
+		<table align=center width=400px>
+			<tr>
+				<td align=center width=100px>
+					<center>
+						<span style="font-size:20px"><a href='#'>[Paper]</a></span>
+					</center>
+				</td>
+				<td align=center width=100px>
+					<center>
+						<span style="font-size:20px"><a href='https://github.com/LiangChengBupt/PhenoLIP'>[GitHub]</a></span>
+					</center>
+				</td>
+				<td align=center width=100px>
+					<center>
+						<span style="font-size:20px"><a href='#'>[Dataset]</a></span>
+					</center>
+				</td>
+				<td align=center width=100px>
+					<center>
+						<span style="font-size:20px"><a href='#'>[Demo]</a></span>
+					</center>
+				</td>
+			</tr>
+		</table>
+
+		<table align=center width=300px style="margin-top:10px;">
+			<tr>
+				<td align=center>
+					<span style="font-size:18px; font-style:italic;"><sup>*</sup>Equal contribution &nbsp; <sup>†</sup>Corresponding authors</span>
+				</td>
+			</tr>
+		</table>
+
+		<table align=center width=300px style="margin-top:10px;">
+			<tr>
+				<td align=center>
+					<span style="font-size:22px; font-weight:500; color:#d9534f;">CVPR 2026</span>
+				</td>
+			</tr>
+		</table>
+	</center>
+
+	<center>
+		<table align=center width=1000px style="margin-top:30px;">
+			<tr>
+				<td width=1000px>
+					<center>
+						<img class="rounded" style="width:1000px" src="./resources/overview.png"/>
+					</center>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding-top:10px;">
+					<center>
+						<span style="font-size:16px; font-style:italic;">
+							Overview of PhenoKG and PhenoLIP: <b>(a)</b> PhenoKG organizes diverse anatomical systems hierarchically;
+							<b>(b)</b> Unified multimodal integration aligning phenotype images, descriptions, and ontology knowledge;
+							<b>(c)</b> PhenoLIP framework with knowledge-enhanced vision–language pretraining via distillation.
+						</span>
+					</center>
+				</td>
+			</tr>
+		</table>
+	</center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td style="text-align:justify;">
+				Recent progress in large-scale CLIP-like vision-language models (VLMs) has greatly advanced medical image analysis.
+				However, most existing medical VLMs still rely on coarse image-text contrastive objectives and fail to capture the systematic visual knowledge encoded in well-defined medical phenotype ontologies.
+				To address this gap, we construct <b>PhenoKG</b>, the first large-scale, phenotype-centric multimodal knowledge graph that encompasses over 520K high-quality image-text pairs linked to more than 3,000 phenotypes.
+				Building upon PhenoKG, we propose <b>PhenoLIP</b>, a novel pretraining framework that explicitly incorporates structured phenotype knowledge into medical VLMs through a two-stage process.
+				We first learn a knowledge-enhanced phenotype embedding space from textual ontology data and then distill this structured knowledge into multimodal pretraining via a teacher-guided knowledge distillation objective.
+				To support evaluation, we further introduce <b>PhenoBench</b>, an expert-verified benchmark designed for phenotype recognition, comprising over 7,800 image-caption pairs covering more than 1,000 phenotypes.
+				Extensive experiments demonstrate that PhenoLIP outperforms previous state-of-the-art baselines, improving upon BiomedCLIP in phenotype classification accuracy by 8.85% and BIOMEDICA in cross-modal retrieval by 15.03%, underscoring the value of integrating phenotype-centric priors into medical VLMs for structured and interpretable medical image understanding.
+			</td>
+		</tr>
+	</table>
+
+	<div class="highlight-box" align=center style="width:850px; margin-left:auto; margin-right:auto;">
+		<table width=100%>
+			<tr>
+				<td width=25% align=center>
+					<span style="font-size:36px; font-weight:bold; color:#0066cc;">524K+</span><br>
+					<span style="font-size:16px;">Image-Text Pairs</span>
+				</td>
+				<td width=25% align=center>
+					<span style="font-size:36px; font-weight:bold; color:#0066cc;">3,000+</span><br>
+					<span style="font-size:16px;">Phenotypes</span>
+				</td>
+				<td width=25% align=center>
+					<span style="font-size:36px; font-weight:bold; color:#0066cc;">7,800+</span><br>
+					<span style="font-size:16px;">Benchmark Pairs</span>
+				</td>
+				<td width=25% align=center>
+					<span style="font-size:36px; font-weight:bold; color:#28a745;">36.56%</span><br>
+					<span style="font-size:16px;">Zero-Shot Accuracy</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<br>
+	<hr>
+
+	<center><h1>Method</h1></center>
+
+	<table align=center width=900px>
+		<tr>
+			<td align=center width=900px>
+				<center>
+					<img class="rounded" style="width:850px" src="./resources/pipeline.png"/>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding-top:10px;">
+				<center>
+					<span style="font-size:16px; font-style:italic;">
+						PhenoLIP pipeline: Two-stage training process incorporating structured phenotype knowledge into vision-language pretraining through knowledge distillation.
+					</span>
+				</center>
+			</td>
+		</tr>
+	</table>
+
+	<table align=center width=850px style="margin-top:30px;">
+		<tr>
+			<td style="text-align:justify;">
+				<h2>PhenoKG Construction</h2>
+				We construct PhenoKG, a large-scale phenotype-centric multimodal knowledge graph, by integrating:
+				<ul>
+					<li><b>Image-text pairs:</b> Over 524K high-quality medical images with detailed phenotype descriptions</li>
+					<li><b>Phenotype ontology:</b> Structured knowledge from Human Phenotype Ontology (HPO) covering 3,000+ phenotypes</li>
+					<li><b>Hierarchical organization:</b> Multi-level anatomical system categorization for systematic knowledge representation</li>
+				</ul>
+
+				<h2>PhenoLIP Framework</h2>
+				Our two-stage pretraining approach:
+				<ol>
+					<li><b>Stage 1 - Knowledge Embedding:</b> Learn a structured phenotype embedding space from textual ontology data using language models</li>
+					<li><b>Stage 2 - Knowledge Distillation:</b> Distill the learned structured knowledge into vision-language pretraining via teacher-guided objectives</li>
+				</ol>
+
+				<h2>PhenoBench Benchmark</h2>
+				We introduce an expert-verified benchmark with:
+				<ul>
+					<li>7,800+ carefully curated image-caption pairs</li>
+					<li>1,000+ phenotypes for comprehensive evaluation</li>
+					<li>Tasks: zero-shot classification and cross-modal retrieval</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+
+	<hr>
+
+	<center><h1>Results</h1></center>
+
+	<table align=center width=850px>
+		<tr>
+			<td>
+				<h2>Zero-Shot Phenotype Classification</h2>
+				<table class="results">
+					<tr>
+						<th>Method</th>
+						<th>Vision Encoder</th>
+						<th>Text Encoder</th>
+						<th>HAM (7)</th>
+						<th>F17K (113)</th>
+						<th>PAD (6)</th>
+						<th>Daffodil (5)</th>
+						<th>Average</th>
+					</tr>
+					<tr>
+						<td>CLIP-B16</td>
+						<td>ViT-B16</td>
+						<td>GPT77</td>
+						<td>20.23</td>
+						<td>6.53</td>
+						<td>45.55</td>
+						<td>45.34</td>
+						<td>29.41</td>
+					</tr>
+					<tr>
+						<td>SigLIP</td>
+						<td>ViT-B16</td>
+						<td>SigLIP64</td>
+						<td>25.02</td>
+						<td>10.07</td>
+						<td>53.15</td>
+						<td>69.95</td>
+						<td>39.55</td>
+					</tr>
+					<tr>
+						<td>BiomedCLIP</td>
+						<td>ViT-B16</td>
+						<td>PMB256</td>
+						<td>63.47</td>
+						<td>9.55</td>
+						<td>45.12</td>
+						<td>58.17</td>
+						<td>44.08</td>
+					</tr>
+					<tr>
+						<td>Biomedica</td>
+						<td>ViT-L14</td>
+						<td>GPT77</td>
+						<td>29.67</td>
+						<td>13.97</td>
+						<td>44.25</td>
+						<td>72.15</td>
+						<td>40.01</td>
+					</tr>
+					<tr class="best-result">
+						<td><b>PhenoLIP (Ours)</b></td>
+						<td>ViT-B16</td>
+						<td>GPT77</td>
+						<td><b>68.20</b></td>
+						<td><b>22.78</b></td>
+						<td><b>60.74</b></td>
+						<td><b>72.57</b></td>
+						<td><b>56.07</b></td>
+					</tr>
+				</table>
+				<p style="margin-top:15px;"><b>Key Finding:</b> PhenoLIP achieves an average accuracy of 56.07%, outperforming BiomedCLIP by <b>8.85%</b> and demonstrating strong generalization across diverse phenotype recognition tasks.</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td style="padding-top:30px;">
+				<h2>Cross-Modal Retrieval on PhenoBench</h2>
+				<table class="results">
+					<tr>
+						<th>Method</th>
+						<th colspan="2">Holdout I2T</th>
+						<th colspan="2">Holdout T2I</th>
+						<th colspan="2">SkinCap I2T</th>
+						<th colspan="2">SkinCap T2I</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>R@10</th>
+						<th>R@50</th>
+						<th>R@10</th>
+						<th>R@50</th>
+						<th>R@10</th>
+						<th>R@50</th>
+						<th>R@10</th>
+						<th>R@50</th>
+					</tr>
+					<tr>
+						<td>CLIP-B16</td>
+						<td>7.13</td>
+						<td>15.42</td>
+						<td>5.94</td>
+						<td>13.86</td>
+						<td>9.13</td>
+						<td>23.54</td>
+						<td>5.92</td>
+						<td>18.60</td>
+					</tr>
+					<tr>
+						<td>SigLIP</td>
+						<td>11.84</td>
+						<td>23.14</td>
+						<td>11.09</td>
+						<td>22.21</td>
+						<td>13.29</td>
+						<td>31.84</td>
+						<td>9.55</td>
+						<td>25.85</td>
+					</tr>
+					<tr>
+						<td>BiomedCLIP</td>
+						<td>16.57</td>
+						<td>27.89</td>
+						<td>15.41</td>
+						<td>27.61</td>
+						<td>13.59</td>
+						<td>34.29</td>
+						<td>12.38</td>
+						<td>33.04</td>
+					</tr>
+					<tr>
+						<td>Biomedica</td>
+						<td>12.90</td>
+						<td>25.09</td>
+						<td>12.15</td>
+						<td>25.69</td>
+						<td>14.21</td>
+						<td>33.84</td>
+						<td>14.92</td>
+						<td>34.90</td>
+					</tr>
+					<tr class="best-result">
+						<td><b>PhenoLIP (Ours)</b></td>
+						<td><b>40.69</b></td>
+						<td><b>60.21</b></td>
+						<td><b>39.66</b></td>
+						<td><b>59.92</b></td>
+						<td><b>15.67</b></td>
+						<td><b>36.32</b></td>
+						<td><b>15.94</b></td>
+						<td><b>35.67</b></td>
+					</tr>
+				</table>
+				<p style="margin-top:15px;"><b>Key Finding:</b> PhenoLIP achieves 60.21% I2T R@50 on the holdout set, improving upon BIOMEDICA by <b>15.03%</b>, demonstrating superior cross-modal alignment for phenotype-centric medical images.</p>
+			</td>
+		</tr>
+	</table>
+
+	<hr>
+
+	<table align=center width=550px>
+		<center><h1>Paper and Citation</h1></center>
+		<tr>
+			<td width=300px align=center>
+				<span style="font-size:16pt">
+					Z. Fan, C. Liang, C. Wu, Y. Zhang, Y. Wang, W. Xie<br>
+					<b>PhenoLIP: Integrating Phenotype Ontology Knowledge into Medical Vision–Language Pretraining</b><br>
+					In CVPR, 2026.<br>
+					<br>
+					<span style="font-size:14pt">
+						<a href="#">[Paper]</a> &nbsp;
+						<a href="https://github.com/LiangChengBupt/PhenoLIP">[Code]</a> &nbsp;
+						<a href="./resources/bibtex.txt">[BibTeX]</a>
+					</span>
+				</span>
+			</td>
+		</tr>
+	</table>
+
+	<hr>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					This webpage template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project. The code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>

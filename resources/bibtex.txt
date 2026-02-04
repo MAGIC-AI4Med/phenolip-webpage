@@ -1,0 +1,6 @@
+@inproceedings{fan2026phenolip,
+  title={PhenoLIP: Integrating Phenotype Ontology Knowledge into Medical Vision--Language Pretraining},
+  author={Fan, Ziqing and Liang, Cheng and Wu, Chaoyi and Zhang, Ya and Wang, Yanfeng and Xie, Weidi},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026}
+}
