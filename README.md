@@ -1,6 +1,6 @@
 # PhenoLIP Project Page
 
-Project webpage for the CVPR 2026 paper:
+Project webpage for the ECCV 2026 paper:
 
 **PhenoLIP: Integrating Phenotype Ontology Knowledge into Medical Vision–Language Pretraining**
 
@@ -98,7 +98,7 @@ If you use this webpage template or find PhenoLIP useful, please cite:
 @inproceedings{fan2026phenolip,
   title={PhenoLIP: Integrating Phenotype Ontology Knowledge into Medical Vision--Language Pretraining},
   author={Fan, Ziqing and Liang, Cheng and Wu, Chaoyi and Zhang, Ya and Wang, Yanfeng and Xie, Weidi},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
   year={2026}
 }
 ```
