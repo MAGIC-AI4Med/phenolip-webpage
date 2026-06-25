@@ -1,0 +1,147 @@
+{
+ "total_pairs": 7817,
+ "unique_phenotypes": 1187,
+ "avg_caption_words": 49.1,
+ "max_caption_words": 918,
+ "singleton_phenotypes": 130,
+ "top_phenotypes": [
+  {
+   "name": "Low-set ears",
+   "count": 82
+  },
+  {
+   "name": "Prominent nose",
+   "count": 74
+  },
+  {
+   "name": "Short philtrum",
+   "count": 72
+  },
+  {
+   "name": "Triangular face",
+   "count": 69
+  },
+  {
+   "name": "Low back pain",
+   "count": 61
+  },
+  {
+   "name": "Central serous chorioretinopathy",
+   "count": 56
+  },
+  {
+   "name": "Broad nasal tip",
+   "count": 51
+  },
+  {
+   "name": "Short neck",
+   "count": 47
+  },
+  {
+   "name": "High forehead",
+   "count": 45
+  },
+  {
+   "name": "Wide nasal bridge",
+   "count": 44
+  },
+  {
+   "name": "Thick eyebrow",
+   "count": 44
+  },
+  {
+   "name": "Dilated cardiomyopathy",
+   "count": 44
+  },
+  {
+   "name": "Long philtrum",
+   "count": 41
+  },
+  {
+   "name": "Subretinal fluid",
+   "count": 40
+  },
+  {
+   "name": "Organizing pneumonia",
+   "count": 39
+  },
+  {
+   "name": "Frontal bossing",
+   "count": 38
+  },
+  {
+   "name": "Radiating pain",
+   "count": 38
+  },
+  {
+   "name": "Wide mouth",
+   "count": 38
+  },
+  {
+   "name": "Cortical tubers",
+   "count": 37
+  },
+  {
+   "name": "Traction bronchiectasis",
+   "count": 36
+  },
+  {
+   "name": "Posteriorly rotated ears",
+   "count": 36
+  },
+  {
+   "name": "Mitral regurgitation",
+   "count": 35
+  },
+  {
+   "name": "Anal stenosis",
+   "count": 34
+  },
+  {
+   "name": "Tendon thickening",
+   "count": 34
+  },
+  {
+   "name": "Smooth philtrum",
+   "count": 34
+  }
+ ],
+ "caption_len_hist": [
+  {
+   "range": "0-10",
+   "count": 275
+  },
+  {
+   "range": "10-20",
+   "count": 607
+  },
+  {
+   "range": "20-30",
+   "count": 937
+  },
+  {
+   "range": "30-40",
+   "count": 1676
+  },
+  {
+   "range": "40-50",
+   "count": 1746
+  },
+  {
+   "range": "50-70",
+   "count": 1551
+  },
+  {
+   "range": "70-100",
+   "count": 531
+  },
+  {
+   "range": "100-150",
+   "count": 276
+  },
+  {
+   "range": "150+",
+   "count": 218
+  }
+ ]
+}

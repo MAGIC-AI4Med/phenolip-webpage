@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>PhenoLIP — Interactive Visualization (PhenoKG &amp; PhenoBench)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta property="og:title" content="PhenoLIP — Interactive Visualization" />
+	<meta property="og:description" content="Interactive exploration of the PhenoKG phenotype knowledge graph and the PhenoBench benchmark." />
+	<style type="text/css">
+		body {
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-weight:300; font-size:18px; margin:0 auto; width:1150px; color:#1a1a1a;
+		}
+		a:link, a:visited { color:#1367a7; text-decoration:none; }
+		a:hover { color:#208799; }
+		h1 { font-size:32px; font-weight:300; }
+		h2 { font-size:26px; font-weight:400; }
+		hr { border:0; height:1px; background-image:linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); }
+
+		.topbar { display:flex; align-items:center; justify-content:space-between; margin:18px 4px 0; font-size:16px; }
+		.topbar .nav a { margin-left:18px; }
+
+		.explorer-wrap { width:1100px; margin:0 auto; }
+		.stat-card-row { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin:18px 0; }
+		.stat-card { flex:1 1 150px; min-width:140px; background:#f7f9fc; border:1px solid #e3e8ef;
+			border-radius:10px; padding:14px 10px; text-align:center; }
+		.stat-card .num { font-size:28px; font-weight:700; color:#0066cc; line-height:1.1; }
+		.stat-card .num.green { color:#28a745; }
+		.stat-card .lbl { font-size:13px; color:#555; margin-top:4px; }
+		.chart-box { width:100%; background:#fff; border:1px solid #eee; border-radius:10px; }
+		.chip { display:inline-block; padding:5px 12px; margin:4px; background:#eef3fb; color:#1367a7;
+			border:1px solid #d4e2f5; border-radius:16px; font-size:14px; cursor:pointer; user-select:none; }
+		.chip:hover { background:#1367a7; color:#fff; }
+		#pk_search { width:330px; padding:9px 12px; font-size:15px; border:1px solid #cdd5e0; border-radius:8px; outline:none; }
+		#pk_suggest { position:absolute; z-index:50; background:#fff; border:1px solid #cdd5e0; border-top:none;
+			width:354px; max-height:260px; overflow-y:auto; box-shadow:0 4px 10px rgba(0,0,0,.08); }
+		#pk_suggest div { padding:7px 12px; font-size:14px; cursor:pointer; }
+		#pk_suggest div:hover, #pk_suggest div.active { background:#eef3fb; }
+		#pk_suggest .sid { color:#999; font-size:12px; float:right; }
+		.kg-info { font-size:14px; color:#444; margin:8px 2px; }
+		.kg-legend { font-size:13px; color:#666; }
+		.kg-legend .dot { display:inline-block; width:11px; height:11px; border-radius:50%; vertical-align:middle; margin:0 4px 0 14px; }
+		.pb-toolbar { margin:14px 0; font-size:15px; }
+		.pb-toolbar select { padding:7px 10px; font-size:14px; border:1px solid #cdd5e0; border-radius:8px; }
+		.gallery { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:16px; }
+		.gcard { border:1px solid #e7e7e7; border-radius:10px; overflow:hidden; background:#fff; cursor:pointer;
+			transition:box-shadow .15s, transform .15s; }
+		.gcard:hover { box-shadow:0 6px 16px rgba(0,0,0,.14); transform:translateY(-2px); }
+		.gcard .imgwrap { width:100%; height:150px; background:#f3f3f3; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+		.gcard img { width:100%; height:100%; object-fit:cover; display:block; }
+		.gcard .meta { padding:8px 10px; }
+		.gcard .ptag { display:inline-block; background:#eef7ee; color:#27692f; border:1px solid #cfe6cf;
+			border-radius:10px; font-size:11px; padding:1px 7px; margin:2px 2px 0 0; }
+		.gcard .cap { font-size:12px; color:#666; margin-top:6px; line-height:1.35;
+			display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+		#pb_modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.66); z-index:200;
+			align-items:center; justify-content:center; }
+		#pb_modal .inner { background:#fff; border-radius:12px; max-width:760px; width:90%; max-height:88vh; overflow-y:auto; padding:22px; }
+		#pb_modal img { max-width:100%; max-height:46vh; display:block; margin:0 auto 14px; border-radius:8px; }
+		#pb_modal .close { float:right; cursor:pointer; font-size:24px; color:#888; line-height:1; }
+		.explorer-note { font-size:13px; color:#b35900; background:#fff8ec; border:1px solid #ffe2b8;
+			border-radius:8px; padding:10px 14px; margin:14px 0; }
+		h3.expl { font-size:22px; font-weight:400; margin-top:26px; }
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+<body>
+	<div class="topbar">
+		<div><a href="index.html">&larr; PhenoLIP project page</a></div>
+		<div class="nav">
+			<a href="https://github.com/MAGIC-AI4Med/PhenoLIP">GitHub</a>
+			<a href="index.html#">Paper</a>
+		</div>
+	</div>
+
+	<center>
+		<br>
+		<span style="font-size:34px; font-weight:400">Interactive Visualization</span><br>
+		<span style="font-size:18px; color:#555;">Explore the <b>PhenoKG</b> phenotype knowledge graph and the <b>PhenoBench</b> benchmark.</span>
+	</center>
+
+	<div id="explorer_fallback" class="explorer-note explorer-wrap" style="display:none;">
+		⚠ This page loads JSON data via <code>fetch()</code> and must be served over HTTP.
+		If you opened it directly (<code>file://</code>), run <code>python -m http.server</code> in this folder and visit
+		<code>http://localhost:8000/demo.html</code>.
+	</div>
+
+	<hr>
+
+	<!-- ----------------------------- PhenoKG ----------------------------- -->
+	<div class="explorer-wrap">
+		<h2>PhenoKG &mdash; Phenotype Knowledge Graph</h2>
+		<p style="font-size:16px; color:#444; text-align:justify;">
+			PhenoKG organizes phenotypes along the Human Phenotype Ontology (HPO) <i>is_a</i> hierarchy.
+			The top-level anatomical systems below are sized by the number of descendant phenotypes and shaded by
+			how many PhenoBench images they cover. Use the explorer to expand the <i>is_a</i> subtree of any phenotype.
+		</p>
+
+		<div class="stat-card-row" id="pk_cards"></div>
+
+		<h3 class="expl">Anatomical Systems</h3>
+		<div id="pk_systems" class="chart-box" style="height:430px;"></div>
+		<p style="font-size:14px; font-style:italic; color:#666;">
+			Top-level systems under <b>Phenotypic abnormality (HP:0000118)</b>. Box area = number of descendant
+			phenotypes; color = number of PhenoBench image–caption pairs covered by that system.
+		</p>
+
+		<h3 class="expl">Subtree Explorer</h3>
+		<p style="font-size:15px; color:#444;">Search a phenotype, then expand its <i>is_a</i> descendants (mirrors PhenoKG's child-node query).</p>
+		<div style="position:relative; display:inline-block;">
+			<input id="pk_search" type="text" placeholder="Type a phenotype, e.g. Hemangioma" autocomplete="off"/>
+			<div id="pk_suggest" style="display:none;"></div>
+		</div>
+		<span style="margin-left:10px;">Examples:</span>
+		<span class="chip pk-ex">Hemangioma</span>
+		<span class="chip pk-ex">Abnormality of the integument</span>
+		<span class="chip pk-ex">Abnormality of the eye</span>
+		<span class="chip pk-ex">Seizure</span>
+		<div class="kg-info" id="pk_info"></div>
+		<div class="kg-legend">
+			<span class="dot" style="background:#e8590c;"></span>has PhenoBench images
+			<span class="dot" style="background:#5b8def;"></span>no images / intermediate node
+		</div>
+		<div style="font-size:13px; color:#1367a7; margin:6px 2px;">
+			Tip: click an <b style="color:#e8590c;">orange</b> node to jump to its PhenoBench samples below &darr;
+		</div>
+		<div id="pk_tree" class="chart-box" style="height:560px; margin-top:8px;"></div>
+	</div>
+
+	<br><hr>
+
+	<!-- ---------------------------- PhenoBench ---------------------------- -->
+	<div class="explorer-wrap">
+		<h2>PhenoBench &mdash; Expert-Verified Benchmark</h2>
+		<p style="font-size:16px; color:#444; text-align:justify;">
+			PhenoBench provides expert-verified image–caption pairs for phenotype recognition. Explore the phenotype
+			frequency distribution, caption-length statistics, and browse representative samples.
+		</p>
+
+		<div class="stat-card-row" id="pb_cards"></div>
+
+		<div style="display:flex; gap:18px; flex-wrap:wrap; margin-top:10px;">
+			<div style="flex:1 1 540px;">
+				<h3 class="expl">Most Frequent Phenotypes</h3>
+				<div id="pb_top" class="chart-box" style="height:430px;"></div>
+			</div>
+			<div style="flex:1 1 360px;">
+				<h3 class="expl">Caption Length</h3>
+				<div id="pb_caphist" class="chart-box" style="height:430px;"></div>
+			</div>
+		</div>
+
+		<h3 class="expl" id="pb_anchor">Sample Gallery</h3>
+		<div class="pb-toolbar">
+			Phenotype:
+			<select id="pb_filter"><option value="">★ Featured phenotypes</option></select>
+			<span id="pb_count" style="margin-left:12px; color:#777; font-size:14px;"></span>
+		</div>
+		<div id="pb_gallery" class="gallery"></div>
+	</div>
+
+	<div id="pb_modal">
+		<div class="inner">
+			<span class="close" onclick="document.getElementById('pb_modal').style.display='none'">&times;</span>
+			<img id="pb_modal_img" src=""/>
+			<div id="pb_modal_tags" style="margin-bottom:10px;"></div>
+			<div id="pb_modal_cap" style="font-size:15px; color:#333; line-height:1.5;"></div>
+		</div>
+	</div>
+
+	<br>
+	<center style="margin-bottom:40px;"><a href="index.html">&larr; Back to PhenoLIP project page</a></center>
+
+	<script type="text/javascript">
+	(function(){
+		var DATA = "resources/data/";
+		function getJSON(url){ return fetch(url).then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); }); }
+
+		// ------------------------------------------------------------------ //
+		// PhenoKG
+		// ------------------------------------------------------------------ //
+		var KG = null;
+		function initKG(stats, graph){
+			KG = graph;
+			var cards = [
+				{num: stats.kg_pairs,            lbl: "Image–Text Pairs"},
+				{num: stats.kg_phenotypes,       lbl: "Linked Phenotypes"},
+				{num: stats.phenotype_abnormality_nodes.toLocaleString(), lbl: "HPO Phenotype Terms"},
+				{num: stats.is_a_edges.toLocaleString(),  lbl: "is_a Relations"},
+				{num: stats.max_depth,           lbl: "Hierarchy Depth"}
+			];
+			document.getElementById("pk_cards").innerHTML = cards.map(function(c){
+				return '<div class="stat-card"><div class="num">'+c.num+'</div><div class="lbl">'+c.lbl+'</div></div>';
+			}).join("");
+
+			var maxImg = Math.max.apply(null, stats.systems.map(function(s){return s.sub_img;}));
+			var tdata = stats.systems.map(function(s){
+				var t = s.sub_img / (maxImg||1);
+				var col = echarts.color.lerp(t, ['#dbe7fb', '#1367a7']);
+				return { name: s.name.replace(/^Abnormality of (the )?/,''), value: s.n_desc,
+					_img: s.sub_img, itemStyle:{color: col} };
+			});
+			var tm = echarts.init(document.getElementById("pk_systems"));
+			tm.setOption({
+				tooltip:{ formatter:function(p){ return '<b>'+p.name+'</b><br/>Descendant phenotypes: '+p.value
+					+'<br/>PhenoBench images: '+p.data._img; } },
+				series:[{ type:"treemap", roam:false, nodeClick:false, breadcrumb:{show:false},
+					data:tdata, label:{show:true, fontSize:12, formatter:'{b}'},
+					itemStyle:{borderColor:'#fff', borderWidth:2, gapWidth:2},
+					levels:[{itemStyle:{borderWidth:0}}] }]
+			});
+
+			KG._names = [];
+			for(var id in graph.nodes){ KG._names.push({id:id, name:graph.nodes[id].name}); }
+			KG._names.sort(function(a,b){ return a.name.length - b.name.length; });
+
+			var tree = echarts.init(document.getElementById("pk_tree"));
+			KG._tree = tree;
+			// click an image-bearing node -> jump to its PhenoBench samples
+			tree.on("click", function(p){
+				if(p && p.data && p.data._img > 0 && window.__pbShow){ window.__pbShow(p.data.name); }
+			});
+			window.addEventListener("resize", function(){ tm.resize(); tree.resize(); });
+			renderSubtree("HP:0001028"); // default: Hemangioma
+		}
+
+		function buildSubtree(rootId, cap, maxDepth){
+			var nodes = KG.nodes, count = {n:0}, truncated = {v:false};
+			function rec(id, depth){
+				var nd = nodes[id]; if(!nd) return null;
+				count.n++;
+				var o = { name: nd.name, _id:id, _img:nd.img, _sub:nd.sub_img, _ndesc:nd.n_desc };
+				if(nd.img > 0){ o.itemStyle = {color:'#e8590c'}; o.symbolSize = 11; }
+				else { o.itemStyle = {color:'#5b8def'}; }
+				if(depth < maxDepth && nd.children && nd.children.length){
+					o.children = [];
+					for(var i=0;i<nd.children.length;i++){
+						if(count.n >= cap){ truncated.v = true; break; }
+						var ch = rec(nd.children[i], depth+1);
+						if(ch) o.children.push(ch);
+					}
+				} else if(nd.children && nd.children.length){
+					o.value = nd.children.length;
+				}
+				return o;
+			}
+			var root = rec(rootId, 0);
+			return {root:root, count:count.n, truncated:truncated.v};
+		}
+
+		function renderSubtree(id){
+			if(!KG || !KG.nodes[id]){ return; }
+			var nd = KG.nodes[id];
+			var built = buildSubtree(id, 500, 8);
+			KG._tree.setOption({
+				tooltip:{ trigger:'item', formatter:function(p){
+					var d = p.data; return '<b>'+d.name+'</b><br/>'+d._id+'<br/>direct PhenoBench images: '
+						+(d._img||0)+'<br/>subtree images: '+(d._sub||0)+'<br/>descendants: '+(d._ndesc||0); } },
+				series:[{
+					type:'tree', data:[built.root], top:'2%', left:'12%', bottom:'2%', right:'18%',
+					symbolSize:8, roam:true, initialTreeDepth:2, expandAndCollapse:true,
+					label:{position:'left', verticalAlign:'middle', align:'right', fontSize:12},
+					leaves:{ label:{position:'right', verticalAlign:'middle', align:'left'} },
+					lineStyle:{color:'#ccc'},
+					emphasis:{focus:'descendant'}, animationDuration:350
+				}]
+			});
+			var msg = '<b>'+nd.name+'</b> ('+id+') — '+nd.n_desc+' descendant phenotypes, '
+				+nd.sub_img+' PhenoBench images in subtree.';
+			if(built.truncated){ msg += ' <span style="color:#b35900;">(showing first '+built.count+' nodes; zoom/scroll the tree)</span>'; }
+			document.getElementById("pk_info").innerHTML = msg;
+		}
+
+		function setupTypeahead(){
+			var inp = document.getElementById("pk_search");
+			var box = document.getElementById("pk_suggest");
+			var active = -1, items = [];
+			function hide(){ box.style.display='none'; active=-1; }
+			function search(q){
+				q = q.trim().toLowerCase(); if(q.length < 2){ hide(); return; }
+				var starts = [], contains = [];
+				for(var i=0;i<KG._names.length;i++){
+					var nm = KG._names[i].name.toLowerCase();
+					if(nm.indexOf(q)===0) starts.push(KG._names[i]);
+					else if(nm.indexOf(q)>=0) contains.push(KG._names[i]);
+					if(starts.length>=20) break;
+				}
+				items = starts.concat(contains).slice(0,20);
+				if(!items.length){ hide(); return; }
+				box.innerHTML = items.map(function(it,idx){
+					return '<div data-idx="'+idx+'">'+it.name+'<span class="sid">'+it.id+'</span></div>'; }).join("");
+				box.style.display='block'; active=-1;
+				Array.prototype.forEach.call(box.children, function(ch){
+					ch.onclick = function(){ choose(parseInt(ch.getAttribute("data-idx"))); };
+				});
+			}
+			function choose(idx){ if(idx<0||idx>=items.length) return; var it=items[idx];
+				inp.value=it.name; hide(); renderSubtree(it.id); }
+			inp.addEventListener("input", function(){ search(inp.value); });
+			inp.addEventListener("keydown", function(e){
+				if(box.style.display==='none') return;
+				if(e.key==='ArrowDown'){ active=Math.min(active+1,items.length-1); e.preventDefault(); }
+				else if(e.key==='ArrowUp'){ active=Math.max(active-1,0); e.preventDefault(); }
+				else if(e.key==='Enter'){ choose(active>=0?active:0); e.preventDefault(); return; }
+				else return;
+				Array.prototype.forEach.call(box.children, function(ch,i){ ch.className = (i===active)?'active':''; });
+				if(active>=0) box.children[active].scrollIntoView({block:'nearest'});
+			});
+			document.addEventListener("click", function(e){ if(!box.contains(e.target) && e.target!==inp) hide(); });
+			Array.prototype.forEach.call(document.querySelectorAll(".pk-ex"), function(ch){
+				ch.onclick = function(){ var name=ch.textContent.trim();
+					for(var i=0;i<KG._names.length;i++){ if(KG._names[i].name===name){ inp.value=name; renderSubtree(KG._names[i].id); return; } } };
+			});
+		}
+
+		// ------------------------------------------------------------------ //
+		// PhenoBench
+		// ------------------------------------------------------------------ //
+		function initPB(stats, featured, byPheno){
+			var cards = [
+				{num: stats.total_pairs.toLocaleString(), lbl:"Image–Caption Pairs"},
+				{num: stats.unique_phenotypes.toLocaleString(), lbl:"Distinct Phenotypes"},
+				{num: stats.avg_caption_words, lbl:"Avg. Caption Words"},
+				{num: stats.singleton_phenotypes.toLocaleString(), lbl:"Single-Sample Phenotypes", green:true}
+			];
+			document.getElementById("pb_cards").innerHTML = cards.map(function(c){
+				return '<div class="stat-card"><div class="num'+(c.green?' green':'')+'">'+c.num+'</div><div class="lbl">'+c.lbl+'</div></div>';
+			}).join("");
+
+			var top = stats.top_phenotypes.slice(0,20).reverse();
+			var bar = echarts.init(document.getElementById("pb_top"));
+			bar.setOption({
+				grid:{left:170, right:30, top:10, bottom:30},
+				tooltip:{trigger:'axis', axisPointer:{type:'shadow'}},
+				xAxis:{type:'value'},
+				yAxis:{type:'category', data:top.map(function(d){return d.name;}), axisLabel:{fontSize:11}},
+				series:[{type:'bar', data:top.map(function(d){return d.count;}),
+					itemStyle:{color:'#1367a7', borderRadius:[0,4,4,0]},
+					label:{show:true, position:'right', fontSize:11}}]
+			});
+
+			var hist = stats.caption_len_hist;
+			var ch = echarts.init(document.getElementById("pb_caphist"));
+			ch.setOption({
+				grid:{left:50, right:20, top:10, bottom:40},
+				tooltip:{trigger:'axis', axisPointer:{type:'shadow'}},
+				xAxis:{type:'category', data:hist.map(function(d){return d.range;}), axisLabel:{rotate:35, fontSize:11}, name:'words'},
+				yAxis:{type:'value'},
+				series:[{type:'bar', data:hist.map(function(d){return d.count;}),
+					itemStyle:{color:'#28a745', borderRadius:[4,4,0,0]}}]
+			});
+			window.addEventListener("resize", function(){ bar.resize(); ch.resize(); });
+
+			var byLower = {};
+			Object.keys(byPheno).forEach(function(k){ byLower[k.toLowerCase()] = k; });
+			var filterSel = document.getElementById("pb_filter");
+			var opts = ['<option value="">★ Featured phenotypes</option>'];
+			Object.keys(byPheno).sort().forEach(function(p){
+				opts.push('<option value="'+p.replace(/"/g,'&quot;')+'">'+p+' ('+byPheno[p].length+')</option>');
+			});
+			filterSel.innerHTML = opts.join("");
+
+			function renderList(list, label){
+				var g = document.getElementById("pb_gallery"); g.innerHTML="";
+				list.forEach(function(s){
+					var tags = s.phenotypes.map(function(p){
+						var hot = label && (p===label);
+						return '<span class="ptag"'+(hot?' style="background:#ffe7d1; color:#b35900; border-color:#ffcaa0;"':'')+'>'+p+'</span>';
+					}).join("");
+					var card = document.createElement("div"); card.className="gcard";
+					card.innerHTML = '<div class="imgwrap"><img loading="lazy" src="'+s.image+'"/></div>'+
+						'<div class="meta">'+tags+'<div class="cap">'+s.caption+'</div></div>';
+					card.onclick = function(){ openModal(s); };
+					g.appendChild(card);
+				});
+				document.getElementById("pb_count").innerHTML = label
+					? ('Showing <b>'+list.length+'</b> sample(s) for <b style="color:#b35900;">'+label+'</b> &nbsp;&middot;&nbsp;<a href="#" id="pb_reset">show featured</a>')
+					: (list.length+' featured samples (one per top phenotype)');
+				var rst = document.getElementById("pb_reset");
+				if(rst) rst.onclick = function(e){ e.preventDefault(); filterSel.value=""; showFeatured(); };
+			}
+			function showFeatured(){ renderList(featured, ""); }
+			function showPhenotype(name){
+				var key = byLower[(name||"").toLowerCase()];
+				if(!key){
+					document.getElementById("pb_gallery").innerHTML = "";
+					document.getElementById("pb_count").innerHTML =
+						'No PhenoBench images for <b>'+name+'</b>. &nbsp;<a href="#" id="pb_reset">show featured</a>';
+					var rst = document.getElementById("pb_reset");
+					if(rst) rst.onclick = function(e){ e.preventDefault(); filterSel.value=""; showFeatured(); };
+					return;
+				}
+				filterSel.value = key;
+				renderList(byPheno[key], key);
+			}
+			filterSel.addEventListener("change", function(){
+				if(filterSel.value) showPhenotype(filterSel.value); else showFeatured(); });
+			showFeatured();
+
+			// exposed for the PhenoKG subtree explorer: show samples + scroll here
+			window.__pbShow = function(name){
+				showPhenotype(name);
+				var a = document.getElementById("pb_anchor");
+				if(a) a.scrollIntoView({behavior:'smooth', block:'start'});
+			};
+
+			function openModal(s){
+				document.getElementById("pb_modal_img").src = s.image;
+				document.getElementById("pb_modal_tags").innerHTML =
+					s.phenotypes.map(function(p){return '<span class="ptag">'+p+'</span>';}).join("");
+				document.getElementById("pb_modal_cap").textContent = s.caption;
+				document.getElementById("pb_modal").style.display = "flex";
+			}
+			document.getElementById("pb_modal").addEventListener("click", function(e){
+				if(e.target.id==="pb_modal") this.style.display="none"; });
+		}
+
+		// ------------------------------------------------------------------ //
+		Promise.all([
+			getJSON(DATA+"phenokg_stats.json"), getJSON(DATA+"phenokg_graph.json"),
+			getJSON(DATA+"phenobench_stats.json"), getJSON(DATA+"phenobench_featured.json"),
+			getJSON(DATA+"phenobench_by_phenotype.json")
+		]).then(function(res){
+			initKG(res[0], res[1]); setupTypeahead();
+			initPB(res[2], res[3], res[4]);
+		}).catch(function(err){
+			console.error("Explorer data load failed:", err);
+			document.getElementById("explorer_fallback").style.display="block";
+		});
+	})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+{
+ "kg_pairs": "524K+",
+ "kg_phenotypes": "3,000+",
+ "hpo_nodes_total": 19651,
+ "phenotype_abnormality_nodes": 18507,
+ "is_a_edges": 23528,
+ "max_depth": 13,
+ "phenobench_mapped_phenotypes": 1187,
+ "systems": [
+  {
+   "id": "HP:0033127",
+   "name": "Abnormality of the musculoskeletal system",
+   "n_desc": 4643,
+   "sub_img": 2448
+  },
+  {
+   "id": "HP:0040064",
+   "name": "Abnormality of limbs",
+   "n_desc": 2953,
+   "sub_img": 1003
+  },
+  {
+   "id": "HP:0000707",
+   "name": "Abnormality of the nervous system",
+   "n_desc": 2767,
+   "sub_img": 2054
+  },
+  {
+   "id": "HP:0001939",
+   "name": "Abnormality of metabolism/homeostasis",
+   "n_desc": 2464,
+   "sub_img": 229
+  },
+  {
+   "id": "HP:0000119",
+   "name": "Abnormality of the genitourinary system",
+   "n_desc": 1672,
+   "sub_img": 2133
+  },
+  {
+   "id": "HP:0001626",
+   "name": "Abnormality of the cardiovascular system",
+   "n_desc": 1472,
+   "sub_img": 3042
+  },
+  {
+   "id": "HP:0000152",
+   "name": "Abnormality of head or neck",
+   "n_desc": 1457,
+   "sub_img": 1688
+  },
+  {
+   "id": "HP:0002715",
+   "name": "Abnormality of the immune system",
+   "n_desc": 1368,
+   "sub_img": 721
+  },
+  {
+   "id": "HP:0000478",
+   "name": "Abnormality of the eye",
+   "n_desc": 1189,
+   "sub_img": 1804
+  },
+  {
+   "id": "HP:0001574",
+   "name": "Abnormality of the integument",
+   "n_desc": 1089,
+   "sub_img": 1224
+  },
+  {
+   "id": "HP:0001871",
+   "name": "Abnormality of blood and blood-forming tissues",
+   "n_desc": 921,
+   "sub_img": 471
+  },
+  {
+   "id": "HP:0025031",
+   "name": "Abnormality of the digestive system",
+   "n_desc": 849,
+   "sub_img": 2138
+  },
+  {
+   "id": "HP:0002664",
+   "name": "Neoplasm",
+   "n_desc": 708,
+   "sub_img": 1764
+  },
+  {
+   "id": "HP:0002086",
+   "name": "Abnormality of the respiratory system",
+   "n_desc": 646,
+   "sub_img": 929
+  },
+  {
+   "id": "HP:0000818",
+   "name": "Abnormality of the endocrine system",
+   "n_desc": 473,
+   "sub_img": 478
+  },
+  {
+   "id": "HP:0025354",
+   "name": "Abnormal cellular phenotype",
+   "n_desc": 317,
+   "sub_img": 37
+  },
+  {
+   "id": "HP:0000598",
+   "name": "Abnormality of the ear",
+   "n_desc": 307,
+   "sub_img": 272
+  },
+  {
+   "id": "HP:0001197",
+   "name": "Abnormality of prenatal development or birth",
+   "n_desc": 243,
+   "sub_img": 94
+  },
+  {
+   "id": "HP:0025142",
+   "name": "Constitutional symptom",
+   "n_desc": 142,
+   "sub_img": 253
+  },
+  {
+   "id": "HP:0001507",
+   "name": "Growth abnormality",
+   "n_desc": 102,
+   "sub_img": 13
+  },
+  {
+   "id": "HP:0000769",
+   "name": "Abnormality of the breast",
+   "n_desc": 53,
+   "sub_img": 37
+  },
+  {
+   "id": "HP:0001608",
+   "name": "Abnormality of the voice",
+   "n_desc": 27,
+   "sub_img": 1
+  },
+  {
+   "id": "HP:0045027",
+   "name": "Abnormality of the thoracic cavity",
+   "n_desc": 6,
+   "sub_img": 41
+  }
+ ]
+}

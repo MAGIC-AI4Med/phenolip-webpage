@@ -1,0 +1,465 @@
+[
+ {
+  "image": "resources/phenobench_samples/img_ffac258d6d80.jpg",
+  "caption": "A 6.5-year-old patient with CEDNIK shows generalized ichthyosis, characterized by widespread, scaly skin lesions, as observed on the back in a dermatological examination without evidence of palmoplantar keratoderma.",
+  "phenotypes": [
+   "Low-set ears",
+   "Generalized ichthyosis",
+   "Short philtrum",
+   "Anteverted nares"
+  ],
+  "primary": "Low-set ears"
+ },
+ {
+  "image": "resources/phenobench_samples/img_2cb313b841bf.jpg",
+  "caption": "Patient 5-1 demonstrates microcephaly, hypotonia, spasticity, drooling, and kyphosis, along with dysmorphic features including bossing forehead, sparse thin hair, epicanthic folds, prominent nose, retrognathia, and low set ears.",
+  "phenotypes": [
+   "Prominent nose",
+   "Broad nasal tip"
+  ],
+  "primary": "Prominent nose"
+ },
+ {
+  "image": "resources/phenobench_samples/img_ffac258d6d80.jpg",
+  "caption": "A 6.5-year-old patient with CEDNIK shows generalized ichthyosis, characterized by widespread, scaly skin lesions, as observed on the back in a dermatological examination without evidence of palmoplantar keratoderma.",
+  "phenotypes": [
+   "Low-set ears",
+   "Generalized ichthyosis",
+   "Short philtrum",
+   "Anteverted nares"
+  ],
+  "primary": "Short philtrum"
+ },
+ {
+  "image": "resources/phenobench_samples/img_a040d1636367.jpg",
+  "caption": "A 10-year-old girl with intellectual disability, developmental delay, and multiple skeletal abnormalities, including pes cavus foot and brachydactyly, as seen in a clinical photograph of the patient's feet and hands.",
+  "phenotypes": [
+   "Short neck",
+   "Triangular face",
+   "Pes cavus"
+  ],
+  "primary": "Triangular face"
+ },
+ {
+  "image": "resources/phenobench_samples/img_f6586180a30e.jpg",
+  "caption": "Sagittal CT scan images of the lower lumbar spine show the postoperative surgical site, with no residual bone fragment and a clear decompression of the affected nerve root.",
+  "phenotypes": [
+   "Low back pain",
+   "Radiating pain"
+  ],
+  "primary": "Low back pain"
+ },
+ {
+  "image": "resources/phenobench_samples/img_ab1942393bf8.jpg",
+  "caption": "A fluorescein angiogram of the right eye of a 55-year-old man with central serous chorioretinopathy, within a 30 × 30 range, revealing diffuse leakage in the macular region.",
+  "phenotypes": [
+   "Choroidal vascular hyperpermeability",
+   "Central serous chorioretinopathy"
+  ],
+  "primary": "Central serous chorioretinopathy"
+ },
+ {
+  "image": "resources/phenobench_samples/img_2cb313b841bf.jpg",
+  "caption": "Patient 5-1 demonstrates microcephaly, hypotonia, spasticity, drooling, and kyphosis, along with dysmorphic features including bossing forehead, sparse thin hair, epicanthic folds, prominent nose, retrognathia, and low set ears.",
+  "phenotypes": [
+   "Prominent nose",
+   "Broad nasal tip"
+  ],
+  "primary": "Broad nasal tip"
+ },
+ {
+  "image": "resources/phenobench_samples/img_a040d1636367.jpg",
+  "caption": "A 10-year-old girl with intellectual disability, developmental delay, and multiple skeletal abnormalities, including pes cavus foot and brachydactyly, as seen in a clinical photograph of the patient's feet and hands.",
+  "phenotypes": [
+   "Short neck",
+   "Triangular face",
+   "Pes cavus"
+  ],
+  "primary": "Short neck"
+ },
+ {
+  "image": "resources/phenobench_samples/img_fbf6ebc617fe.jpg",
+  "caption": "This sub-figure shows frontal bossing with a ridge over the metopic suture, hypoplastic supraorbital ridges, and a prominent nasal root, indicative of the characteristic craniofacial features associated with this syndrome.",
+  "phenotypes": [
+   "Long philtrum",
+   "Frontal bossing",
+   "Adducted thumb",
+   "High forehead",
+   "Short neck",
+   "Full cheeks"
+  ],
+  "primary": "High forehead"
+ },
+ {
+  "image": "resources/phenobench_samples/img_ae697218cf7c.jpg",
+  "caption": "Clinical photograph of individual 1 with a mosaic STAG2 variant, demonstrating a supernumerary nipple only on the right side, consistent with asymmetric manifestations observed in mosaic disorders.",
+  "phenotypes": [
+   "Posteriorly rotated ears",
+   "Supernumerary nipple",
+   "Low posterior hairline",
+   "Wide nasal bridge",
+   "Prominent nose"
+  ],
+  "primary": "Wide nasal bridge"
+ },
+ {
+  "image": "resources/phenobench_samples/img_3ade909ba7e2.jpg",
+  "caption": "Facial features of a 12-year-old male with intellectual disability and autism spectrum disorder, including sparse scalp hair and high myopia requiring thick-lensed glasses, as observed in a clinical photograph.",
+  "phenotypes": [
+   "High myopia",
+   "Broad nasal tip",
+   "Posteriorly rotated ears",
+   "Thick eyebrow",
+   "Wide mouth",
+   "Fine hair"
+  ],
+  "primary": "Thick eyebrow"
+ },
+ {
+  "image": "resources/phenobench_samples/img_1d57ab3bebdd.jpg",
+  "caption": "Pacemaker recording in a patient with ESUS and cardiac disease, depicting an episode of atrial flutter with ventricular pacing, with tracings showing atrial electrogram, ventricular electrogram, surface electrocardiogram (ECG), and pacemaker marker channels from top to bottom.",
+  "phenotypes": [
+   "Restrictive cardiomyopathy",
+   "Patent foramen ovale",
+   "Dilated cardiomyopathy"
+  ],
+  "primary": "Dilated cardiomyopathy"
+ },
+ {
+  "image": "resources/phenobench_samples/img_fbf6ebc617fe.jpg",
+  "caption": "This sub-figure shows frontal bossing with a ridge over the metopic suture, hypoplastic supraorbital ridges, and a prominent nasal root, indicative of the characteristic craniofacial features associated with this syndrome.",
+  "phenotypes": [
+   "Long philtrum",
+   "Frontal bossing",
+   "Adducted thumb",
+   "High forehead",
+   "Short neck",
+   "Full cheeks"
+  ],
+  "primary": "Long philtrum"
+ },
+ {
+  "image": "resources/phenobench_samples/img_a0c19d1204a3.jpg",
+  "caption": "Figure 5 Ultrasound scan (a) revealed tumor thickness 2.6 mm with acoustic hollowing typical of choroidal melanoma. Optical coherence tomography scan confirmed subretinal fluid (b) overlying the tumor",
+  "phenotypes": [
+   "Choroidal melanoma",
+   "Subretinal fluid"
+  ],
+  "primary": "Subretinal fluid"
+ },
+ {
+  "image": "resources/phenobench_samples/img_fa309d30a21c.jpg",
+  "caption": "A chest X-ray image of a patient with organizing pneumonia (OP) showing bilateral lung infiltrates and ground-glass opacities, indicative of diffuse pulmonary involvement and early signs of alveolar inflammation.",
+  "phenotypes": [
+   "Organizing pneumonia"
+  ],
+  "primary": "Organizing pneumonia"
+ },
+ {
+  "image": "resources/phenobench_samples/img_003609ba3ef9.jpg",
+  "caption": "A nonenhanced CT scan of the abdomen six weeks after embolization, showing peripheral hyperdensity within the previously hypodense hepatic lesion, indicating a response to the embolization procedure.",
+  "phenotypes": [
+   "Frontal bossing"
+  ],
+  "primary": "Frontal bossing"
+ },
+ {
+  "image": "resources/phenobench_samples/img_0dff606f16de.jpg",
+  "caption": "Magnetic resonance imaging reveals severe central and bilateral lateral recess stenosis at the L4–5 level, indicated by arrows, contributing to significant nerve compression and the patient's clinical symptoms.",
+  "phenotypes": [
+   "Radiating pain",
+   "Intermittent claudication"
+  ],
+  "primary": "Radiating pain"
+ },
+ {
+  "image": "resources/phenobench_samples/img_7bbaee2d11d2.jpg",
+  "caption": "Continuing the reconstruction, the posterior wall of the right liver outflow was similarly reconstructed with a wide-mouth anastomosis using allogeneic veins, ensuring a secure and functional vascular connection.",
+  "phenotypes": [
+   "Wide mouth"
+  ],
+  "primary": "Wide mouth"
+ },
+ {
+  "image": "resources/phenobench_samples/img_5292e757a29c.jpg",
+  "caption": "T2-weighted brain MRI of the proband's younger brother, showing multiple cortical tubers (arrows) with hyperintensity, and a small subependymal nodule (*), findings in line with tuberous sclerosis complex.",
+  "phenotypes": [
+   "Cardiac rhabdomyoma",
+   "Cortical tubers",
+   "Subependymal nodules"
+  ],
+  "primary": "Cortical tubers"
+ },
+ {
+  "image": "resources/phenobench_samples/img_39039cd5bd29.jpg",
+  "caption": "Figure 2 HRCT—July 2019—Case 1. Subpleural honeycombing, nodular lesions, linear fibrosis, traction bronchiectasis, reticulation and ground glass opacities with associated minimal emphysema. Diffuse pulmonary infiltrates in the inferior half.",
+  "phenotypes": [
+   "Traction bronchiectasis",
+   "Subpleural honeycombing"
+  ],
+  "primary": "Traction bronchiectasis"
+ },
+ {
+  "image": "resources/phenobench_samples/img_ae697218cf7c.jpg",
+  "caption": "Clinical photograph of individual 1 with a mosaic STAG2 variant, demonstrating a supernumerary nipple only on the right side, consistent with asymmetric manifestations observed in mosaic disorders.",
+  "phenotypes": [
+   "Posteriorly rotated ears",
+   "Supernumerary nipple",
+   "Low posterior hairline",
+   "Wide nasal bridge",
+   "Prominent nose"
+  ],
+  "primary": "Posteriorly rotated ears"
+ },
+ {
+  "image": "resources/phenobench_samples/img_0f71458d1822.jpg",
+  "caption": "The system, trained on hospital-collected data, automatically detects the edge of the mitral regurgitation spectrum and outputs the edge curve along with a numerical value for LAPEp.",
+  "phenotypes": [
+   "Mitral regurgitation"
+  ],
+  "primary": "Mitral regurgitation"
+ },
+ {
+  "image": "resources/phenobench_samples/img_6c1e5ea7617e.jpg",
+  "caption": "preoperative sagittal T2-weighted magnetic resonance images showing lumbar spinal canal stenosis at L3/4, and axial magnetic resonance imaging showing lateral recess stenosis on the right side (arrow).",
+  "phenotypes": [
+   "Anal stenosis",
+   "Lumbar spinal canal stenosis"
+  ],
+  "primary": "Anal stenosis"
+ },
+ {
+  "image": "resources/phenobench_samples/img_34dc954219fc.jpg",
+  "caption": "The 20 and 40 mg/kg groups demonstrate uniformly distributed echoes, minimal tendon thickening, and well-defined anatomical boundaries, with sonographic features being indistinguishable between these two higher-dose groups.",
+  "phenotypes": [
+   "Tendon thickening"
+  ],
+  "primary": "Tendon thickening"
+ },
+ {
+  "image": "resources/phenobench_samples/img_e29e1981fbad.jpg",
+  "caption": "Facial photographs of one affected male with the c.851G>C p.(Arg284Pro) OGT variant, exhibiting typical facial features of OGT-XLID, such as a wide mouth, thin upper lip, full lower lip, and smooth philtrum.",
+  "phenotypes": [
+   "Smooth philtrum",
+   "Wide mouth"
+  ],
+  "primary": "Smooth philtrum"
+ },
+ {
+  "image": "resources/phenobench_samples/img_2898b91c7d81.jpg",
+  "caption": "A computed tomography scan of a patient with diffuse alveolar hemorrhage, showing alveolar infiltrates consistent with widespread pulmonary hemorrhage, indicating acute lung injury and potential systemic vasculitis.",
+  "phenotypes": [
+   "Diffuse alveolar hemorrhage",
+   "Fibrocellular crescent",
+   "Cellular crescent"
+  ],
+  "primary": "Cellular crescent"
+ },
+ {
+  "image": "resources/phenobench_samples/img_60c53752840f.jpg",
+  "caption": "Chest X-ray of a term-born female neonate with a polymalformative syndrome associated with polyhydramnios, revealing 12 pairs of gracile, hypoplastic ribs.",
+  "phenotypes": [
+   "Short nose",
+   "Flat face",
+   "Simplified gyral pattern",
+   "Hypoplastic iliac wing"
+  ],
+  "primary": "Short nose"
+ },
+ {
+  "image": "resources/phenobench_samples/img_c121fc00065b.jpg",
+  "caption": "A 2-year-and-4-month-old female with OFCD syndrome demonstrating oral abnormalities, including abnormal dentition with fused teeth (indicated by a gray arrow) and congenital absence of a tooth (indicated by a black arrow).",
+  "phenotypes": [
+   "Long face",
+   "Broad nasal tip",
+   "Full cheeks",
+   "Low-set ears",
+   "Fused teeth",
+   "Absent antitragus"
+  ],
+  "primary": "Long face"
+ },
+ {
+  "image": "resources/phenobench_samples/img_0dff606f16de.jpg",
+  "caption": "Magnetic resonance imaging reveals severe central and bilateral lateral recess stenosis at the L4–5 level, indicated by arrows, contributing to significant nerve compression and the patient's clinical symptoms.",
+  "phenotypes": [
+   "Radiating pain",
+   "Intermittent claudication"
+  ],
+  "primary": "Intermittent claudication"
+ },
+ {
+  "image": "resources/phenobench_samples/img_048ed8b82648.jpg",
+  "caption": "Renal biopsy findings in Gitelman syndrome patients, showing coexisting membranous nephropathy (MN) and IgA nephropathy (IgAN), with immunofluorescence demonstrating IgA deposition predominantly in the mesangium, observed under ×200 magnification.",
+  "phenotypes": [
+   "Focal segmental glomerulosclerosis",
+   "Membranous nephropathy"
+  ],
+  "primary": "Membranous nephropathy"
+ },
+ {
+  "image": "resources/phenobench_samples/img_5292e757a29c.jpg",
+  "caption": "T2-weighted brain MRI of the proband's younger brother, showing multiple cortical tubers (arrows) with hyperintensity, and a small subependymal nodule (*), findings in line with tuberous sclerosis complex.",
+  "phenotypes": [
+   "Cardiac rhabdomyoma",
+   "Cortical tubers",
+   "Subependymal nodules"
+  ],
+  "primary": "Subependymal nodules"
+ },
+ {
+  "image": "resources/phenobench_samples/img_80bc500ce198.jpg",
+  "caption": "A Tc-99m sestamibi scan in a patient with parathyroid adenoma shows increased tracer uptake in the right inferior parathyroid gland, indicating the presence of a hyperfunctioning parathyroid adenoma.",
+  "phenotypes": [
+   "Parathyroid adenoma"
+  ],
+  "primary": "Parathyroid adenoma"
+ },
+ {
+  "image": "resources/phenobench_samples/img_ae8dd9fc28ca.jpg",
+  "caption": "(B) A 67-year-old male with a recurrent bulbo-membranous stricture, identified after brachytherapy for prostate cancer, displaying the narrowed bulbo-membranous urethra segment with the arrow indicating the site of recurrence.",
+  "phenotypes": [
+   "Prostate cancer",
+   "Urethral diverticulum",
+   "Scrotal hypospadias",
+   "Penoscrotal hypospadias"
+  ],
+  "primary": "Prostate cancer"
+ },
+ {
+  "image": "resources/phenobench_samples/img_a615c82c1597.jpg",
+  "caption": "Post-induction findings confirm the presence of anal atresia, with the left descending colon exhibiting dilatation, and effusion within the uterus didelphys, consistent with the prenatal diagnosis of urorectal septal malformation and associated anomalies.",
+  "phenotypes": [
+   "Anal atresia",
+   "Uterus didelphys"
+  ],
+  "primary": "Anal atresia"
+ },
+ {
+  "image": "resources/phenobench_samples/img_1c4f27040fa7.jpg",
+  "caption": "Otoendoscopic images of the eardrum and EAC depicting myringitis or otitis externa, with activation heatmaps emphasizing the inflamed regions of the EAC and eardrum, particularly areas where moisture or inflammation is present due to infection.",
+  "phenotypes": [
+   "Otitis externa",
+   "Otitis media with effusion"
+  ],
+  "primary": "Otitis media with effusion"
+ },
+ {
+  "image": "resources/phenobench_samples/img_cdd0f12f3fb3.jpg",
+  "caption": "HIF-2α immunostaining of the retroperitoneal mass is positive, indicating potential hypoxic conditions within the tumor, which may play a role in tumor growth and progression in this paraganglioma.",
+  "phenotypes": [
+   "Retroperitoneal mass",
+   "Peritoneal mass"
+  ],
+  "primary": "Retroperitoneal mass"
+ },
+ {
+  "image": "resources/phenobench_samples/img_cdd0f12f3fb3.jpg",
+  "caption": "HIF-2α immunostaining of the retroperitoneal mass is positive, indicating potential hypoxic conditions within the tumor, which may play a role in tumor growth and progression in this paraganglioma.",
+  "phenotypes": [
+   "Retroperitoneal mass",
+   "Peritoneal mass"
+  ],
+  "primary": "Peritoneal mass"
+ },
+ {
+  "image": "resources/phenobench_samples/img_e7a57da63d22.jpg",
+  "caption": "A 45-year-old patient with subcutaneous gamma-delta T-cell lymphoma (S-PCGDTCL) presenting with pyoderma gangrenosum-like plaques on the leg, characterised by ulcerated and inflamed skin lesions, observed on the lower limb.",
+  "phenotypes": [
+   "Pyoderma gangrenosum",
+   "Erythematous plaque"
+  ],
+  "primary": "Erythematous plaque"
+ },
+ {
+  "image": "resources/phenobench_samples/img_cde5d5f7658c.jpg",
+  "caption": "Hypersensitivity pneumonitis (HP) as seen on expiratory CT imaging of the lungs, highlighting air trapping with mosaic attenuation patterns, which are indicative of obstructive small airway disease in HP.",
+  "phenotypes": [
+   "Hypersensitivity pneumonitis",
+   "Air trapping"
+  ],
+  "primary": "Air trapping"
+ },
+ {
+  "image": "resources/phenobench_samples/img_fa9570a44871.jpg",
+  "caption": "Both eyes of individual VI:5 with Axenfeld–Rieger syndrome exhibit megalocornea and posterior embryotoxon, with the right eye showing polycoria and the left eye demonstrating corectopia, as captured in a clinical ocular assessment.",
+  "phenotypes": [
+   "Long philtrum",
+   "Posterior embryotoxon",
+   "Broad forehead"
+  ],
+  "primary": "Broad forehead"
+ },
+ {
+  "image": "resources/phenobench_samples/img_280375096aef.jpg",
+  "caption": "A 45-year-old patient with Gorlin-Goltz syndrome, presenting with multiple manifestations of the syndrome, showing a bifid uvula, which is a cleft or split in the uvula, as seen in a clinical photograph of the oral cavity.",
+  "phenotypes": [
+   "Bifid uvula"
+  ],
+  "primary": "Bifid uvula"
+ },
+ {
+  "image": "resources/phenobench_samples/img_16122b8cf40e.jpg",
+  "caption": "Axial non-contrast CT scan of the brain revealing subarachnoid hemorrhage (SAH), with diffuse hyperdense material along the basal cisterns and sulci, consistent with acute bleeding in the subarachnoid space.",
+  "phenotypes": [
+   "Subdural hemorrhage",
+   "Epidural hemorrhage",
+   "Subarachnoid hemorrhage"
+  ],
+  "primary": "Subarachnoid hemorrhage"
+ },
+ {
+  "image": "resources/phenobench_samples/img_704529367d9b.jpg",
+  "caption": "Computed tomography (CT) scans of a patient with squamous cell carcinoma (SCC) and lung adenocarcinoma, showing the right neck lymph node metastasis with prominent soft tissue density and enlarged lymph nodes consistent with SCC prior to nivolumab treatment.",
+  "phenotypes": [
+   "Lung adenocarcinoma"
+  ],
+  "primary": "Lung adenocarcinoma"
+ },
+ {
+  "image": "resources/phenobench_samples/img_e40da731417f.jpg",
+  "caption": "Intraoperative photographs during microvascular decompression for right hemifacial spasm, illustrating the anterior inferior cerebellar artery (AICA) after being translocated anteriorly using a spatula, demonstrating the maneuver to relieve vascular compression on the facial nerve.",
+  "phenotypes": [
+   "Hemifacial spasm"
+  ],
+  "primary": "Hemifacial spasm"
+ },
+ {
+  "image": "resources/phenobench_samples/img_3f01569471dc.jpg",
+  "caption": "diffuse ground glass attenuation with a crazy paving pattern, characterized by interlobular and intralobular septal thickening, indicative of diffuse alveolar damage, bilaterally in both lungs (black arrow).",
+  "phenotypes": [
+   "Crazy paving pattern",
+   "Intralobular septal thickening",
+   "Diffuse alveolar damage"
+  ],
+  "primary": "Diffuse alveolar damage"
+ },
+ {
+  "image": "resources/phenobench_samples/img_345acb4abe6e.jpg",
+  "caption": "Preoperative computed tomography scans of a 62-year-old farmer with chronic otitis media, showing an axial view of the temporal bone with soft tissue density in the middle ear cavity and mastoid cells, indicative of chronic otitis media.",
+  "phenotypes": [
+   "Chronic otitis media"
+  ],
+  "primary": "Chronic otitis media"
+ },
+ {
+  "image": "resources/phenobench_samples/img_223713c80cda.jpg",
+  "caption": "H&E staining of renal biopsy tissue from a male patient with focal segmental glomerulosclerosis (FSGS), showing 3/20 glomeruli with focal segmental sclerosis, consistent with the diagnosis of FSGS.",
+  "phenotypes": [
+   "Podocyte foot process effacement",
+   "Focal segmental glomerulosclerosis",
+   "Diffuse cerebellar atrophy"
+  ],
+  "primary": "Focal segmental glomerulosclerosis"
+ },
+ {
+  "image": "resources/phenobench_samples/img_5fa99ea8bf0a.jpg",
+  "caption": "Color fundus montage photograph of the right eye shows attenuated retinal vessels with arteriolar nonperfusion and distal branch retinal artery occlusions, along with scattered dot-blot hemorrhages in the periphery.",
+  "phenotypes": [
+   "Central scotoma",
+   "Paracentral scotoma",
+   "Branch retinal artery occlusion"
+  ],
+  "primary": "Central scotoma"
+ }
+]
